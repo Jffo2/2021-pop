@@ -1,0 +1,172 @@
+=================================================================================
+
+Persoonlijk ontwikkelingsplan (POP) - opvolgingsdocument Academiejaar 2020-2021
+
+=================================================================================
+
+
+
+Student:	Jorn Schampheleer
+
+Mentor:		<in te vullen door de mentor>
+
+
+=================================================================================
+Beschrijving - datum 24/09/2020 (in te vullen wanneer je je voorstel indient)
+=================================================================================
+
+Onderwerp:
+
+Het bestuderen van deep learning algoritmes in python met nadruk op genetische algoritmes.
+
+
+Einddoelen (met evaluatiecriteria):
+
+1. De student leert deep learning algoritmes kennen en werken met TensorFlow door middel van de  "Intro to TensorFlow for Deep Learning" op Udacity (https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187) 
+    Indicator: De student houdt zijn oefeningen bij ter evaluatie.
+2. De student leert bij over Genetic Algorithms en hoe deze gebruikt worden in python en vergelijkt enkele libraries zoals DEAP, PyEvolve en NEAT
+    Indicator: De student houdt zijn bevindingen bij in een rapport.
+3. De student past zijn verworven kennis toe door een AI-agent te schrijven die leert de dinosaurusgame van chrome te spelen gebaseerd op Genetic Algorithms. De student zal zelf het spel namaken in pygame en zelf een simpel Genetic Algorithm schrijven.
+    Indicator: De student schrijft zelf een Genetic Algorithm en een spel in pygame, de bedoeling is dat het Genetic Algorithm een manier kan vinden om het spel te winnen.
+
+
+Motivatie - betrokkenheid:
+
+Machine learning is constant aan het ontwikkelen en is een machtige skill om in je repertoire te hebben. Ik vind het zeer interessant hoe tesla's zelf kunnen rijden en hoe er AI's zijn die zelf spelletjes kunnen spelen. Er zijn veel verschillende algoritmes met elk een specifieke toepassing. Hoewel image object detection ea. mij helemaal niet liggen, ben ik wel zeer geinteresseerd in genetische algoritmes door de manier waarop ze de realiteit benaderen, en dat het mogelijk is om te zien HOE zij leren. Dit wordt vooral duidelijk bij een genetisch algoritme dat een spel speelt. De originele staat is meestel de AI die ofwel niet beweegt ofwel de hele tijd dezelfde beweging maakt, tot je dan begint te convergeren en steeds beter en beter wordt.
+
+Motivatie - grenzen verleggen:
+
+Deep learning wordt maar heel erg zwak afgetoetst in onze opleiding. Het zou een verlegging van mijn grenzen zijn omdat mijn einddoelen ook verschillende aspecten incorporeren en verschillende libraries van de python programmeertaal. Er zijn aspecten van programmeren, game development en deep learning in terug te vinden. De laatste twee komen niet of slechts zeer oppervlakkig aan bod in onze opleiding.
+
+Motivatie - professioneel profiel:
+
+Kunnen aantonen dat je iets af weet van machine learning is zeer waardevol op de markt. Ik zou ook op lange termijn willen meedoen met het tensorflow certification exam maar ik denk niet dat het mogelijk is om mijzelf hier op zo'n korte tijd op voor te bereiden. Dit zou een nog mooiere toevoeging zijn aan mijn professioneel profiel.
+
+kerndoelen: 1.a, 4a, 4b, 6e, 8i, 10m
+
+Werkvormen: Zelfstandig opzoeken op het internet en meedoen met een online course.
+
+
+=================================================================================
+Planning - <datum van eerste ingave> (op te stellen nadat je voorstel is goedgekeurd)
+=================================================================================
+
+<Hou hier je werkplanning bij, op te stellen nadat je voorstel is goedgekeurd>
+
+
+=================================================================================
+Logboek
+=================================================================================
+
+<Noteer hier je activiteiten, gevonden informatie, behaalde milestones, 
+belangrijke gebeurtenissen, problemen, oplossingen...
+Zet voor elke nieuwe entry op een aparte lijn je naam en de datum.
+Als je dat wil, mag je de zuiver technische informatie in een aanvullend 'technisch logboek'
+bijhouden (binnen je repository). In dat geval kan je hier bij de verschillende entries verwijzen
+naar dat technisch logboek.>
+
+
+
+
+
+
+
+
+
+
+
+
+=================================================================================
+Eerste tussenrapportering - <datum van ingave>
+=================================================================================
+
+Stand van zaken:
+
+<Geef hier een korte stand van zaken van wat er gebeurd is sinds de start: 
+Wat is er gerealiseerd? Wat moet nog gebeuren? Wat zijn bijzondere gebeurtenissen?
+Wat zijn problemen die je nog moet oplossen?>
+
+Reflectie:
+
+<Hoe werkt je aanpak? Waar had je achteraf gezien beter anders te werk kunnen gaan?
+Hoe ga je eventueel bijsturen? Welke aanpassingen zijn er nodig in je planning?>
+
+
+Zelfevaluatie:
+
+<Geef jezelf hier een score (gaande van 'NVT' tot 'A') voor de items die in het 
+evaluatiedocument een witte achtergrond hebben>
+
+
+Feedback vanwege mentor - <datum van ingave>:
+
+<Hier komt de feedback en opmerkingen vanwege de mentor>
+
+
+
+=================================================================================
+(optioneel) Tweede tussenrapportering - <datum van ingave>
+=================================================================================
+
+Stand van zaken:
+
+<Geef hier een korte stand van zaken van wat er gebeurd is sinds vorige tussenrapportering: 
+Wat is er gerealiseerd? Wat moet nog gebeuren? Wat zijn bijzondere gebeurtenissen?
+Wat zijn problemen die je nog moet oplossen?>
+
+Reflectie:
+
+<Hoe werkt je aanpak? Waar had je achteraf gezien beter anders te werk kunnen gaan?
+Hebben vroegere bijsturingen het gewenste effect? Wat wil je nog wijzigen in je aanpak of planning?>
+
+
+Zelfevaluatie:
+
+<Geef jezelf hier een score (gaande van 'NVT' tot 'A') voor de items die in het 
+evaluatiedocument een witte achtergrond hebben>
+
+
+Feedback vanwege mentor - <datum van ingave>:
+
+<Hier komt de feedback en opmerkingen vanwege de mentor>
+
+
+
+=================================================================================
+Eindrapportering - <datum van ingave>
+=================================================================================
+
+
+Eindrapportering:
+
+<Geef hier een eindstand van wat je bereikt hebt (en wat niet).
+Hierin verwijs je ook naar eventuele bijkomende documenten of informatie om dit te onderbouwen.>
+
+Reflectie:
+
+<Geef hier een reflectie over je aanpak, je originele einddoelen, en je resultaat: Wat was goed?
+ Wat had beter gekund? Waren er alternatieven voor je aanpak? Wat zou je achteraf gezien anders
+ gedaan hebben? Hoe zou je je nog verder kunnen profileren in de richting van je onderwerp? >
+
+
+Inhoud Portfolio:
+
+<Geef hier een overzicht van de informatie die je portfolio bevat> 
+
+
+Bronnenlijst:
+
+<Geef hier een lijst van gebruikte bronnen volgens de IEEE-standaard>
+
+Zelfevaluatie:
+
+<Geef jezelf hier een score (gaande van 'NVT' tot 'A') voor de items die in het 
+evaluatiedocument een witte achtergrond hebben>
+
+
+
+
+
+
+
+
