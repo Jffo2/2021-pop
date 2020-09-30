@@ -8,8 +8,7 @@ Persoonlijk ontwikkelingsplan (POP) - opvolgingsdocument Academiejaar 2020-2021
 
 Student:	Jorn Schampheleer
 
-Mentor:		<in te vullen door de mentor>
-
+Mentor:		Johan Donné
 
 =================================================================================
 Beschrijving - datum 24/09/2020 (in te vullen wanneer je je voorstel indient)
@@ -28,6 +27,9 @@ Einddoelen (met evaluatiecriteria):
     Indicator: De student houdt zijn bevindingen bij in een rapport.
 3. De student past zijn verworven kennis toe door een AI-agent te schrijven die leert de dinosaurusgame van chrome te spelen gebaseerd op Genetic Algorithms. De student zal zelf het spel namaken in pygame en zelf een simpel Genetic Algorithm schrijven.
     Indicator: De student schrijft zelf een Genetic Algorithm en een spel in pygame, de bedoeling is dat het Genetic Algorithm een manier kan vinden om het spel te winnen.
+
+<Johan Donné - Goedgekeurd op 30/09/2020 />
+
 
 
 Motivatie - betrokkenheid:
