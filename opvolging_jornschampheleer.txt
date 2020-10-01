@@ -50,11 +50,24 @@ Werkvormen: Zelfstandig opzoeken op het internet en meedoen met een online cours
 
 
 =================================================================================
-Planning - <datum van eerste ingave> (op te stellen nadat je voorstel is goedgekeurd)
+Planning - 01/10/2020 (op te stellen nadat je voorstel is goedgekeurd)
 =================================================================================
 
-<Hou hier je werkplanning bij, op te stellen nadat je voorstel is goedgekeurd>
-
+Maandag 05/10/2020: Les 1+2    kijken op Udacity
+Maandag 12/10/2020: Les 3      kijken op Udacity
+Maandag 19/10/2020: Les 4      kijken op Udacity
+Maandag 26/10/2020: Les 5      kijken op Udacity
+Maandag 02/11/2020: Les 6      kijken op Udacity
+Maandag 09/11/2020: Les 7      kijken op Udacity
+Maandag 16/11/2020: Les 8      kijken op Udacity
+Maandag 23/11/2020: Les 9      kijken op Udacity
+Maandag 30/11/2020: Les 10+11  kijken op Udacity
+Maandag 07/12/2020: Onderzoeken van Genetic Algorithms
+Maandag 14/12/2020: Rapport schrijven over Genetic Algorithms + beginnen onderzoek verschillende libraries
+Maandag 21/12/2020: Verderzetten vergelijken van de verschillende libraries
+Dinsdag 22/12/2020: Rapport aanvullen met vergelijking van de verschillende libraries
+Woensdag 23/12/2020: Onderzoeken van pygame en de mogelijkheden, kiezen van een library om te gebruiken
+Donderdag 24/12/2020: Beginnen met het werken aan het spel (t.e.m. 02/01/2020)
 
 =================================================================================
 Logboek
