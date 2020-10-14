@@ -72,13 +72,8 @@ Donderdag 24/12/2020: Beginnen met het werken aan het spel (t.e.m. 02/01/2020)
 =================================================================================
 Logboek
 =================================================================================
-
-<Noteer hier je activiteiten, gevonden informatie, behaalde milestones, 
-belangrijke gebeurtenissen, problemen, oplossingen...
-Zet voor elke nieuwe entry op een aparte lijn je naam en de datum.
-Als je dat wil, mag je de zuiver technische informatie in een aanvullend 'technisch logboek'
-bijhouden (binnen je repository). In dat geval kan je hier bij de verschillende entries verwijzen
-naar dat technisch logboek.>
+14/10/2020: Klaar met het bekijken van alle lessen van Udacity.
+	Per het evaluatiecriterium upload ik het lesmateriaal (incl gemaakte oefeningen) als colab notebooks naar de github onder de map "Colab Notebooks".
 
 
 
