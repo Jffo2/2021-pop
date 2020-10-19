@@ -13,18 +13,22 @@ white = 255, 255, 255
 black = 0, 0, 0
 
 
-def do_events(jumping):
+def do_events(jumping, crouching):
     for event in pygame.event.get():  # Check for events
         if event.type == pygame.QUIT:
             pygame.quit()  # quits
             quit()
         if event.type == pygame.KEYDOWN:  # If user uses the keyboard
-            if event.key == pygame.K_SPACE:  # If that key is space
+            if event.key == pygame.K_SPACE or event.key == pygame.K_UP:  # If that key is space
                 jumping = True
+            if event.key == pygame.K_DOWN:
+                crouching = True
         if event.type == pygame.KEYUP:
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE or event.key == pygame.K_UP:
                 jumping = False
-    return jumping
+            if event.key == pygame.K_DOWN:
+                crouching = False
+    return jumping, crouching
 
 
 def draw(deltatime, game_display, drawables):
@@ -50,6 +54,7 @@ def main():
     game_clock = pygame.time.Clock()
 
     jumping = False
+    crouching = False
 
     while True:
         t = pygame.time.get_ticks()  # Get current time
@@ -57,15 +62,16 @@ def main():
         lastframe = t  # Set lastFrame as the current time for next frame.
 
         obstaclespawner.update(deltatime)
-        if obstaclespawner.is_colliding(dinosaur):
-            break
 
-        jumping = do_events(jumping)
+        jumping, crouching = do_events(jumping, crouching)
 
         if jumping:
             dinosaur.jump()
+        dinosaur.set_crouch(crouching)
 
         draw(deltatime, game_display, [dinosaur, ground] + obstaclespawner.obstacles)
+        if obstaclespawner.is_colliding(dinosaur):
+            break
         game_clock.tick(30)  # Lock fps to 30
 
 
