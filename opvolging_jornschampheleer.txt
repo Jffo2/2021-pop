@@ -92,21 +92,45 @@ Eerste tussenrapportering - <datum van ingave>
 
 Stand van zaken:
 
-<Geef hier een korte stand van zaken van wat er gebeurd is sinds de start: 
-Wat is er gerealiseerd? Wat moet nog gebeuren? Wat zijn bijzondere gebeurtenissen?
-Wat zijn problemen die je nog moet oplossen?>
+Tot hier toe heb ik reeds alle courses bekeken over Tensorflow.
+Ik verwerkte ook alle colabs (notebooks) in verband met de course.
+Ik heb in de course heel veel bijgeleerd over hoe neural networks werken.
+Daarna ben ik begonnen met mijn rapport, waarin ik kort de werking van een Genetic Algorithm
+uit de doeken doe en waarin ik enkele bibliotheken vergelijk.
+In dit rapport stel ik ook kort een eigen Genetisch algoritme op voor een simpel probleem,
+en vergelijk ik dit met enkele bibliotheken. Dit vond ik zeer interessant,
+vooral om zelf bezig te zijn met het ontwikkelen van een genetisch algoritme.
+Ik ben ook reeds begonnen aan het maken van het dinospel. Hier rest mij voorlopig nog
+de implementatie van het Genetisch algoritme. Ik verwacht dat dit redelijk straight-forward
+zou moeten zijn aangezien ik al wat code heb geschreven in mijn rapport voor een eigen
+Genetisch algoritme. Ik overweeg momenteel ook nog, indien ik voldoende tijd nog heb
+om het spel ook te laten spelen door NEAT 
+(dit is eigenlijk een bibliotheek voor neuroalgoritmes en behoort dus eigenlijk niet tot mijn 
+doelstellingen, maar zo kan ik wel aantonenen dat ik MEER kennis heb opgedaan dan voorzien in de evaluatie)
 
 Reflectie:
-
-<Hoe werkt je aanpak? Waar had je achteraf gezien beter anders te werk kunnen gaan?
-Hoe ga je eventueel bijsturen? Welke aanpassingen zijn er nodig in je planning?>
+Mijn aanpak werkte redelijk goed. De begeleiding bij de courses was zeer goed uitgewerkt.
+Er waren veel notebooks voorzien en om de zoveel lessen theorie kon je het zelf toepassen
+of aan het werk zien in de notebooks 
+(sommige notebooks waren reeds ingevuld, in andere notebooks moest je soms zelf nog dingen invullen,
+zo was er bijvoorbeeld een notebook waar je bijna from-scratch een image-classifier moest maken).
+Voor mijn rapport heb ik ook mijn best gedaan om gestructureerd het rapport op te stellen.
+Een voorbeeld van een implementatie van een eigen Genetisch Algoritme vond ik een toegevoegde waarde
+alsook het oplossen van dezelfde oefening met enkele libraries ter vergelijking.
+Voorlopig zit ik voor op mijn planning, maar heb ik wel nog werk aan mijn laatste evaluatiecriterium.
+Indien ik echt nog tijd over heb breid ik mijn opdracht uit en doe ik een implementatie met NEAT
+maar dit kan ik nog niet voorspellen. Ik vraag mij wel nog af of mijn rapport voldoende uitgediept is.
 
 
 Zelfevaluatie:
 
 <Geef jezelf hier een score (gaande van 'NVT' tot 'A') voor de items die in het 
 evaluatiedocument een witte achtergrond hebben>
-
+nieuw verworven kennis: B
+toepassing aangetoond: B
+planning: B
+initiatief-inzet: A
+rapportering: C
 
 Feedback vanwege mentor - <datum van ingave>:
 
