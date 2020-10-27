@@ -72,8 +72,19 @@ Donderdag 24/12/2020: Beginnen met het werken aan het spel (t.e.m. 02/01/2020)
 =================================================================================
 Logboek
 =================================================================================
-14/10/2020: Klaar met het bekijken van alle lessen van Udacity.
+04/10/2020: Les 1 + 2 + 3 Op Udacity + oefeningen
+05/10/2020: Les 4 Op Udacity + oefeningen
+06/10/2020: Les 5 op Udacity + oefeningen tot puntje 15
+07/10/2020: Les 5 op Udacity afwerken door zelf het CNN op te stellen om bloemen te klassificeren + Les 6 + oefeningen
+08/10/2020: Les 7 op Udacity + oefeningen
+09/10/2020: Les 8 tot puntje 18 op Udacity + oefeningen
+11/10/2020: Les 8 afwerken op Udacity + oefeningen
+13/10/2020: Les 9 + 10 op Udacity + oefeningen
+14/10/2020: Les 11 kijken op Udacity, hiermee zijn de lessen afgewerkt.
 	Per het evaluatiecriterium upload ik het lesmateriaal (incl gemaakte oefeningen) als colab notebooks naar de github onder de map "Colab Notebooks".
+14/10/2020: Schrijven van het rapport.
+18/10/2020: Beginnen met maken van het dino spel. Eerste commit en dino
+19/10/2020: Afwerken dino spel basis. Alles klaarmaken om GA te implementeren.
 
 
 
@@ -130,7 +141,7 @@ nieuw verworven kennis: B
 toepassing aangetoond: B
 planning: B
 initiatief-inzet: A
-rapportering: C
+rapportering: B
 
 Feedback vanwege mentor - <datum van ingave>:
 
