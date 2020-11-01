@@ -3,9 +3,9 @@
 #  Textures copyrighted by google, extracted from the game by chirag64 (https://github.com/chirag64/t-rex-runner-bot)
 
 import pygame
-from dinosaur import Dinosaur
-from ground import Ground
-from obstacle_spawner import ObstacleSpawner
+from DinoAI.DinoAI.dinosaur import Dinosaur
+from DinoAI.DinoAI.ground import Ground
+from DinoAI.DinoAI.obstacle_spawner import ObstacleSpawner
 
 pygame.init()
 GROUND_HEIGHT = 100

@@ -3,6 +3,7 @@
 #  Textures copyrighted by google, extracted from the game by chirag64 (https://github.com/chirag64/t-rex-runner-bot)
 import pygame
 
+# region textures
 WALK_SPRITE_ARRAY = [
     pygame.image.load("img/trex_walk3.png"),
     pygame.image.load("img/trex_walk4.png"),
@@ -14,7 +15,9 @@ CROUCH_SPRITE_ARRAY = [
 
 JUMP_SPRITE = pygame.image.load("img/trex_walk1.png")
 DEAD_SPRITE = pygame.image.load("img/trex_walk5.png")
+# endregion
 
+# region Static vars
 UPDATE_SPRITE_EVERY = 3
 
 GRAVITY = -2500
@@ -29,13 +32,15 @@ CROUCH_WIDTH = CROUCH_SPRITE_ARRAY[0].get_size()[0]
 Y_OFFSET = 15
 
 
+# endregion
+
 class Dinosaur(object):
     def __init__(self, surfaceheight):
         self.crouching = False
         self.x = 60
         self.y = 0
         self.yvelocity = 0
-        self.surfaceHeight = surfaceheight
+        self.surfaceheight = surfaceheight
         self.tick = 0
         self.sprite_index = 0
         # Jump sprite is the most neutral one for collision detection, with the legs in the center
@@ -81,7 +86,7 @@ class Dinosaur(object):
             display.blit(JUMP_SPRITE, (self.x, self.get_absolute_y()))
 
     def get_absolute_y(self):
-        return self.surfaceHeight - self.y - self.height + Y_OFFSET
+        return self.surfaceheight - self.y - self.height + Y_OFFSET
 
     def get_mask(self):
         return self.crouch_mask if self.crouching else self.walk_mask

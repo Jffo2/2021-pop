@@ -10,14 +10,19 @@ VELOCITY = 300
 
 class Ground(object):
     def __init__(self, surfaceheight, ground_height):
+        # scroll speed percentage
+        self.speed = 100
         self.x = 0
         self.y = surfaceheight - ground_height
 
     def update(self, deltatime):
-        self.x -= VELOCITY * deltatime
+        self.x -= (self.speed/100) * VELOCITY * deltatime
         if self.x <= -1 * GROUND_SPRITE.get_size()[0]:
             self.x = 0
 
     def draw(self, display):
         display.blit(GROUND_SPRITE, (self.x, self.y))
         display.blit(GROUND_SPRITE, (self.x+WIDTH, self.y))
+
+    def increase_speed(self, newspeed):
+        self.speed = newspeed

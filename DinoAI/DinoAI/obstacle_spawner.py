@@ -1,10 +1,11 @@
 #  Copyright (c) 2020.
 #  By Jorn Schampheleer
 import random
-from obstacle import Obstacle
+
+from DinoAI.DinoAI.obstacle import Obstacle
 
 MIN_TIME_BETWEEN_SPAWN = 1
-SPAWN_RATE = 0.05
+SPAWN_RATE = 0.1
 
 
 class ObstacleSpawner(object):
@@ -27,3 +28,10 @@ class ObstacleSpawner(object):
             if obstacle.is_colliding(dinosaur):
                 return True
         return False
+
+    def get_next_obstacle_xy(self, dinosaur):
+        for obstacle in self.obstacles:
+            if obstacle.x > dinosaur.x:
+                return obstacle.x, obstacle.relative_y
+        return None
+

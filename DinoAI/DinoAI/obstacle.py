@@ -1,9 +1,11 @@
 #  Copyright (c) 2020.
 #  By Jorn Schampheleer
 #  Textures copyrighted by google, extracted from the game by chirag64 (https://github.com/chirag64/t-rex-runner-bot)
-import pygame
 import random
 
+import pygame
+
+# region Textures
 OBSTACLE_TEXTURES_SMALL = [
     pygame.image.load("img/cactus1S.png"),
     pygame.image.load("img/cactus2S.png"),
@@ -20,7 +22,9 @@ OBSTACLE_TEXTURES_BIRD = [
     pygame.image.load("img/bird_flap1.png"),
     pygame.image.load("img/bird_flap2.png")
 ]
+# endregion
 
+# region Static vars
 ALL_TEXTURES = OBSTACLE_TEXTURES_LARGE + OBSTACLE_TEXTURES_SMALL + OBSTACLE_TEXTURES_BIRD
 
 VELOCITY = 300
@@ -33,21 +37,25 @@ Y_OFFSET = 12
 BIRD_HEIGHT_ARRAY = [
     0,
     40,
-    60
+    80
 ]
 
 
+# endregion
+
 class Obstacle(object):
     def __init__(self, surfacewidth, surfaceheight, texture=None):
+        # scroll speed percentage
         self.bird = False
         self.x = surfacewidth
-        self.y = surfaceheight
         self.texture = random.choice(ALL_TEXTURES) if texture is None else ALL_TEXTURES[texture]
         self.y = surfaceheight - self.texture.get_size()[1] + Y_OFFSET
         self.mask = pygame.mask.from_surface(self.texture)
+        self.relative_y = 0
         # Choose height for bird
         if self.texture in OBSTACLE_TEXTURES_BIRD:
-            self.y -= random.choice(BIRD_HEIGHT_ARRAY)
+            self.relative_y = random.choice(BIRD_HEIGHT_ARRAY)
+            self.y -= self.relative_y
             self.bird = True
             self.sprite_index = 0
             self.mask = [
@@ -67,7 +75,7 @@ class Obstacle(object):
         display.blit(texture, (self.x, self.y))
 
     def is_offscreen(self):
-        return self.x < 0
+        return self.x + self.texture.get_size()[0] < 0
 
     def is_colliding(self, dinosaur):
         if self.bird:
