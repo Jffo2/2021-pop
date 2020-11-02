@@ -16,18 +16,23 @@ black = 0, 0, 0
 FPS = 30
 
 
-def do_events():
+def do_events(speed_multiplier):
     for event in pygame.event.get():  # Check for events
         if event.type == pygame.QUIT:
             pygame.quit()  # quits
             quit()
+        if event.type == pygame.KEYUP:  # If user uses the keyboard
+            if event.key == pygame.K_SPACE:
+                speed_multiplier = speed_multiplier % 5 + 1
+    return speed_multiplier
 
 
-def draw(deltatime, game_display, score, geneticsengine: GeneticsEngine, drawables):
+def draw(deltatime, game_display, score, speed_multiplier, geneticsengine: GeneticsEngine, drawables):
     game_display.fill(black)
     draw_score(game_display, score)
     draw_evolution_info(game_display, geneticsengine.current_gen, geneticsengine.dinosaurs,
                         geneticsengine.best_dinosaur)
+    draw_speed(game_display, speed_multiplier)
     for drawable in drawables:
         drawable.update(deltatime)
         drawable.draw(game_display)
@@ -53,6 +58,12 @@ def draw_evolution_info(display, generation, dinosaurs, best_dinosaur):
     display.blit(img, (20, 100))
 
 
+def draw_speed(display, speed_multiplier):
+    font = pygame.font.SysFont(None, 24)
+    img = font.render("Speed: x" + str(speed_multiplier), True, white)
+    display.blit(img, (20, 120))
+
+
 def main():
     # Initialize game
     size = width, height = 640, 480
@@ -63,6 +74,8 @@ def main():
     lastframe = pygame.time.get_ticks()  # Get ticks returns current time in milliseconds
     game_clock = pygame.time.Clock()
 
+    speed_multiplier = 1
+
     while genetics_engine.current_gen < genetics_engine.n_generations:
         ground = Ground(height, GROUND_HEIGHT)
         obstaclespawner = ObstacleSpawner(width, height - GROUND_HEIGHT)
@@ -71,28 +84,29 @@ def main():
         score = 0
 
         while len(alive_dinosaurs):
-            score += 1
             t = pygame.time.get_ticks()  # Get current time
             deltatime = (t - lastframe) / 1000.0  # Find difference in time and then convert it to seconds
             lastframe = t  # Set lastFrame as the current time for next frame.
+            # Do speed_range steps within one frametime, this can increase speed
+            for i in range(speed_multiplier):
+                score += 1
+                obstaclespawner.update(deltatime)
 
-            obstaclespawner.update(deltatime)
+                speed_multiplier = do_events(speed_multiplier)
 
-            do_events()
+                draw(deltatime, game_display, score, speed_multiplier, genetics_engine,
+                     alive_dinosaurs + [ground] + obstaclespawner.obstacles)
+                for dinosaur in genetics_engine.dinosaurs:
+                    if not dinosaur.alive:
+                        continue
+                    dinosaur.score = score
+                    gamestate = obstaclespawner.get_next_obstacle_xy(dinosaur)
+                    if gamestate is not None:
+                        [dino.react(gamestate) for dino in alive_dinosaurs]
+                    if obstaclespawner.is_colliding(dinosaur):
+                        dinosaur.alive = False
 
-            draw(deltatime, game_display, score, genetics_engine,
-                 alive_dinosaurs + [ground] + obstaclespawner.obstacles)
-            for dinosaur in genetics_engine.dinosaurs:
-                if not dinosaur.alive:
-                    continue
-                dinosaur.score = score
-                gamestate = obstaclespawner.get_next_obstacle_xy(dinosaur)
-                if gamestate is not None:
-                    [dino.react(gamestate) for dino in alive_dinosaurs]
-                if obstaclespawner.is_colliding(dinosaur):
-                    dinosaur.alive = False
-
-            alive_dinosaurs = [dino for dino in genetics_engine.dinosaurs if dino.alive]
+                alive_dinosaurs = [dino for dino in genetics_engine.dinosaurs if dino.alive]
             game_clock.tick(FPS)  # Lock fps to 30
 
             if score > 20000:

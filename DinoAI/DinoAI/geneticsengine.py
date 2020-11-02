@@ -5,9 +5,9 @@ from DinoAI.DinoAI.aidinosaur import AIDinosaur
 from DinoAI.DinoAI.dna import DNA
 import random
 
-POPULATION_SIZE = 10
+POPULATION_SIZE = 5
 N_GENERATIONS = 1000
-MUTATION_CHANCE = 0.4
+MUTATION_CHANCE = 0.3
 
 
 class GeneticsEngine(object):
@@ -85,6 +85,18 @@ class GeneticsEngine(object):
                     newdna.jump_trigger = dino.dna.jump_trigger
                     newdna.crouch_trigger = dino.dna.crouch_trigger
 
+    def mutate_diff(self, dinosaurs):
+        for dino in dinosaurs:
+            if random.random() <= self.mutation_chance:
+                index = random.randint(1, 3)
+                offset = random.randint(-10, 10)
+                if index == 1:
+                    dino.dna.jump_trigger += offset
+                elif index == 2:
+                    dino.dna.crouch_trigger += offset
+                else:
+                    dino.dna.object_height_trigger += offset
+
     def evolve(self):
         sorted_dinos = sorted(self.dinosaurs, key=lambda x: x.score)
         if self.best_dinosaur.score < sorted_dinos[-1].score:
@@ -93,6 +105,6 @@ class GeneticsEngine(object):
         parents.append(self.best_dinosaur)  # elitist
         parents = [AIDinosaur.from_dinosaur(parent) for parent in parents]
         babies = self.mate(parents[:], self.n_population - len(parents))
-        self.mutate(babies)
+        self.mutate_diff(babies)
         self.dinosaurs = parents + babies
         self.current_gen += 1
