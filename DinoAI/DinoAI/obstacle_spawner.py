@@ -10,6 +10,7 @@ SPAWN_RATE = 0.1
 
 class ObstacleSpawner(object):
     def __init__(self, surfacewidth, surfaceheight):
+        self.speed = 100
         self.time_since_last_spawn = 0
         self.obstacles = []
         self.surfacewidth = surfacewidth
@@ -17,8 +18,9 @@ class ObstacleSpawner(object):
 
     def update(self, deltatime):
         self.time_since_last_spawn += deltatime
-        if self.time_since_last_spawn > MIN_TIME_BETWEEN_SPAWN and random.random() < SPAWN_RATE:
+        if self.time_since_last_spawn > (MIN_TIME_BETWEEN_SPAWN/(self.speed/100)) and random.random() < SPAWN_RATE:
             self.obstacles.append(Obstacle(self.surfacewidth, self.surfaceheight))
+            self.obstacles[-1].increase_speed(self.speed)
             self.time_since_last_spawn = 0
         if len(self.obstacles) > 0 and self.obstacles[0].is_offscreen():
             self.obstacles.pop(0)
@@ -35,3 +37,7 @@ class ObstacleSpawner(object):
                 return obstacle.x, obstacle.relative_y
         return None
 
+    def increase_speed(self, newspeed):
+        self.speed = newspeed
+        for obstacle in self.obstacles:
+            obstacle.increase_speed(newspeed)

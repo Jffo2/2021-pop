@@ -5,9 +5,9 @@ from DinoAI.DinoAI.aidinosaur import AIDinosaur
 from DinoAI.DinoAI.dna import DNA
 import random
 
-POPULATION_SIZE = 5
+POPULATION_SIZE = 200
 N_GENERATIONS = 1000
-MUTATION_CHANCE = 0.3
+MUTATION_CHANCE = 0.05
 
 
 class GeneticsEngine(object):
@@ -43,8 +43,14 @@ class GeneticsEngine(object):
                               sorted(zip(fitscores, self.dinosaurs), key=lambda x: self.best_dinosaur.score - x[0])]
         return random.choices(sorted_individuals, rank_weights, k=int((amount * len(self.dinosaurs))))
 
-    # Crossover will switch one of the properties from the parents!
-    def crossover(self, parent1: AIDinosaur, parent2):
+    @staticmethod
+    def crossover(parent1: AIDinosaur, parent2):
+        """
+        Calculate two babies from 2 parents by swapping 1 of the properties from the parents
+        @param parent1: The first parent
+        @param parent2: The second parent
+        @return: A tuple containing two babies
+        """
         index = random.randint(1, 3)
         dinobaby1 = AIDinosaur.from_dinosaur(parent1)
         dinobaby2 = AIDinosaur.from_dinosaur(parent2)
@@ -59,8 +65,13 @@ class GeneticsEngine(object):
             dinobaby2.dna.object_height_trigger = parent1.dna.object_height_trigger
         return dinobaby1, dinobaby2
 
-    # Let people mate at random to make amount babies
     def mate(self, fittest_individuals, amount):
+        """
+        Let the fittest individuals of the population reproduce.
+        @param fittest_individuals: The individuals to mate
+        @param amount: The amount of babies to make
+        @return: A list of all the babies
+        """
         babies = list()
         for i in range(0, amount, 2):
             baby1, baby2 = self.crossover(random.choice(fittest_individuals), random.choice(fittest_individuals))
@@ -71,6 +82,10 @@ class GeneticsEngine(object):
         return babies
 
     def mutate(self, dinosaurs):
+        """
+        Allow DNA to mutate to a random value
+        @param dinosaurs: the dinosaurs to mutate
+        """
         for dino in dinosaurs:
             if random.random() <= self.mutation_chance:
                 index = random.randint(1, 3)
@@ -86,6 +101,12 @@ class GeneticsEngine(object):
                     newdna.crouch_trigger = dino.dna.crouch_trigger
 
     def mutate_diff(self, dinosaurs):
+        """
+        Allows Dinosaurs' DNA to mutate, but instead of mutating to a random value, just offset it a little bit from
+        its old value
+        @see mutate
+        @param dinosaurs: the dinosaurs to mutate
+        """
         for dino in dinosaurs:
             if random.random() <= self.mutation_chance:
                 index = random.randint(1, 3)
@@ -98,6 +119,14 @@ class GeneticsEngine(object):
                     dino.dna.object_height_trigger += offset
 
     def evolve(self):
+        """
+        Run the evolution:
+            1. Perform natural selection
+            2. Have fittest individuals mate
+            3. Let babies mutate
+            4. Create new population containing elitist, parents and babies
+        This also increases the current_gen counter
+        """
         sorted_dinos = sorted(self.dinosaurs, key=lambda x: x.score)
         if self.best_dinosaur.score < sorted_dinos[-1].score:
             self.best_dinosaur = sorted_dinos[-1]

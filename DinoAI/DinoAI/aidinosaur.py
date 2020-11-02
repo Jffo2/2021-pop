@@ -5,38 +5,7 @@ import pygame
 from DinoAI.DinoAI.dinosaur import Dinosaur
 from DinoAI.DinoAI.aidinobehavior import AIDinoBehavior
 from DinoAI.DinoAI.dna import DNA
-import random
 
-# region Textures
-WALK_SPRITE_ARRAY = [
-    pygame.image.load("img/trex_walk3.png"),
-    pygame.image.load("img/trex_walk4.png"),
-]
-CROUCH_SPRITE_ARRAY = [
-    pygame.image.load("img/trex_duck1.png"),
-    pygame.image.load("img/trex_duck2.png"),
-]
-
-JUMP_SPRITE = pygame.image.load("img/trex_walk1.png")
-DEAD_SPRITE = pygame.image.load("img/trex_walk5.png")
-# endregion
-
-# region Static vars
-UPDATE_SPRITE_EVERY = 3
-
-GRAVITY = -2500
-JUMP_VELOCITY = 800
-
-WALK_HEIGHT = JUMP_SPRITE.get_size()[1]
-WALK_WIDTH = JUMP_SPRITE.get_size()[0]
-
-CROUCH_HEIGHT = CROUCH_SPRITE_ARRAY[0].get_size()[1]
-CROUCH_WIDTH = CROUCH_SPRITE_ARRAY[0].get_size()[0]
-
-Y_OFFSET = 15
-
-
-# endregion
 
 class AIDinosaur(Dinosaur):
     def __init__(self, surfaceheight):
@@ -59,11 +28,13 @@ class AIDinosaur(Dinosaur):
         self.yvelocity = 0
         self.crouching = False
 
-    def increase_speed(self, newspeed):
-        self.speed = newspeed
-
     @staticmethod
     def from_dinosaur(dinosaur):
+        """
+        Copy a dinosaur. This returns a new alive dinosaur with score 0. It only copies DNA and behavior
+        @param dinosaur: The dinosaur to copy
+        @return: A new copied dinosaur
+        """
         newdino = AIDinosaur(dinosaur.surfaceheight)
         newdino.dna = dinosaur.dna.copy()
         newdino.score = 0

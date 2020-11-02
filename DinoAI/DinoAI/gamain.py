@@ -21,9 +21,9 @@ def do_events(speed_multiplier):
         if event.type == pygame.QUIT:
             pygame.quit()  # quits
             quit()
-        if event.type == pygame.KEYUP:  # If user uses the keyboard
+        if event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE:
-                speed_multiplier = speed_multiplier % 5 + 1
+                speed_multiplier = speed_multiplier % 11 + 1
     return speed_multiplier
 
 
@@ -76,6 +76,7 @@ def main():
 
     speed_multiplier = 1
 
+    # This is the evolutionary loop
     while genetics_engine.current_gen < genetics_engine.n_generations:
         ground = Ground(height, GROUND_HEIGHT)
         obstaclespawner = ObstacleSpawner(width, height - GROUND_HEIGHT)
@@ -83,6 +84,9 @@ def main():
         alive_dinosaurs = genetics_engine.dinosaurs
         score = 0
 
+        speed = 100
+
+        # This is the game loop for one generation
         while len(alive_dinosaurs):
             t = pygame.time.get_ticks()  # Get current time
             deltatime = (t - lastframe) / 1000.0  # Find difference in time and then convert it to seconds
@@ -93,6 +97,11 @@ def main():
                 obstaclespawner.update(deltatime)
 
                 speed_multiplier = do_events(speed_multiplier)
+
+                if speed < 160 and score % 300 == 0:
+                    speed += 10
+                    obstaclespawner.increase_speed(speed)
+                    ground.increase_speed(speed)
 
                 draw(deltatime, game_display, score, speed_multiplier, genetics_engine,
                      alive_dinosaurs + [ground] + obstaclespawner.obstacles)

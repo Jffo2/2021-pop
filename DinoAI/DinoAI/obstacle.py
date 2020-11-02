@@ -46,6 +46,7 @@ BIRD_HEIGHT_ARRAY = [
 class Obstacle(object):
     def __init__(self, surfacewidth, surfaceheight, texture=None):
         # scroll speed percentage
+        self.speed = 100
         self.bird = False
         self.x = surfacewidth
         self.texture = random.choice(ALL_TEXTURES) if texture is None else ALL_TEXTURES[texture]
@@ -65,7 +66,7 @@ class Obstacle(object):
         self.tick = 0
 
     def update(self, deltatime):
-        self.x -= VELOCITY * deltatime
+        self.x -= (self.speed / 100.0) * VELOCITY * deltatime
         self.tick += 1
         if self.bird and self.tick % BIRD_FLAP_EVERY == 0:
             self.sprite_index = (self.sprite_index + 1) % len(OBSTACLE_TEXTURES_BIRD)
@@ -84,3 +85,6 @@ class Obstacle(object):
             mask = self.mask
         return mask.overlap(dinosaur.get_mask(),
                             (int(dinosaur.x - self.x), int(dinosaur.get_absolute_y() - self.y)))
+
+    def increase_speed(self, newspeed):
+        self.speed = newspeed

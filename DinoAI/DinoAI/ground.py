@@ -16,7 +16,7 @@ class Ground(object):
         self.y = surfaceheight - ground_height
 
     def update(self, deltatime):
-        self.x -= (self.speed/100) * VELOCITY * deltatime
+        self.x -= (self.speed/100.0) * VELOCITY * deltatime
         if self.x <= -1 * GROUND_SPRITE.get_size()[0]:
             self.x = 0
 
