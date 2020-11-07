@@ -143,37 +143,23 @@ planning: B
 initiatief-inzet: A
 rapportering: B
 
-Feedback vanwege mentor - <datum van ingave>:
+<Johan Donné - 7 november 2020>
 
-<Hier komt de feedback en opmerkingen vanwege de mentor>
+Jorn
 
+Het doet me plezier te lezen dat alles vlot verloopt (wat meniet echt verrast :)) en dat je voor zit op je planning.
+Je aanpak is heel grondig en degelijk. De uitwerking van een eigen GA is al een sterk punt, de vergelijking met varianten die de verschillende bibliotheken gebruiken, lijkt me heel interessant en nuttig als referentie voor je eigen implementatie.
+De diepgang van je rapport is zeker in orde! 
 
+Ik verwacht ook wel dat je implementatie voor het dinogame GA relatief vlot zal lopen. Zorg in elk geval voor de nodige documentatie over jouw versie van het spel en de werkaning van je GA daarvoor.
 
-=================================================================================
-(optioneel) Tweede tussenrapportering - <datum van ingave>
-=================================================================================
+Ik kijk in elk geval uit naar je eindresultaat!
 
-Stand van zaken:
+Veel succes met het verder verloop!
 
-<Geef hier een korte stand van zaken van wat er gebeurd is sinds vorige tussenrapportering: 
-Wat is er gerealiseerd? Wat moet nog gebeuren? Wat zijn bijzondere gebeurtenissen?
-Wat zijn problemen die je nog moet oplossen?>
+johan
 
-Reflectie:
-
-<Hoe werkt je aanpak? Waar had je achteraf gezien beter anders te werk kunnen gaan?
-Hebben vroegere bijsturingen het gewenste effect? Wat wil je nog wijzigen in je aanpak of planning?>
-
-
-Zelfevaluatie:
-
-<Geef jezelf hier een score (gaande van 'NVT' tot 'A') voor de items die in het 
-evaluatiedocument een witte achtergrond hebben>
-
-
-Feedback vanwege mentor - <datum van ingave>:
-
-<Hier komt de feedback en opmerkingen vanwege de mentor>
+</Johan Donné>
 
 
 
