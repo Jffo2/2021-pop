@@ -2,7 +2,7 @@
 #  By Jorn Schampheleer
 import random
 
-from DinoAI.DinoAI.obstacle import Obstacle
+from DinoAI.DinoAI.GameObjects.obstacle import Obstacle
 
 MIN_TIME_BETWEEN_SPAWN = 1
 SPAWN_RATE = 0.1

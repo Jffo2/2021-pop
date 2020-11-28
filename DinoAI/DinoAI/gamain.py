@@ -3,10 +3,9 @@
 #  Textures copyrighted by google, extracted from the game by chirag64 (https://github.com/chirag64/t-rex-runner-bot)
 
 import pygame
-from DinoAI.DinoAI.aidinosaur import AIDinosaur
-from DinoAI.DinoAI.ground import Ground
-from DinoAI.DinoAI.obstacle_spawner import ObstacleSpawner
-from DinoAI.DinoAI.geneticsengine import GeneticsEngine
+from DinoAI.DinoAI.GameObjects.ground import Ground
+from DinoAI.DinoAI.GameObjects.obstacle_spawner import ObstacleSpawner
+from DinoAI.DinoAI.GAHelpers.geneticsengine import GeneticsEngine
 
 pygame.init()
 GROUND_HEIGHT = 100
@@ -19,7 +18,7 @@ FPS = 30
 def do_events(speed_multiplier):
     for event in pygame.event.get():  # Check for events
         if event.type == pygame.QUIT:
-            pygame.quit()  # quits
+            pygame.quit()
             quit()
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE:
@@ -37,7 +36,7 @@ def draw(deltatime, game_display, score, speed_multiplier, geneticsengine: Genet
         drawable.update(deltatime)
         drawable.draw(game_display)
 
-    pygame.display.update()  # updates the screen
+    pygame.display.update()
 
 
 def draw_score(display, score):
@@ -82,50 +81,57 @@ def main():
         obstaclespawner = ObstacleSpawner(width, height - GROUND_HEIGHT)
 
         alive_dinosaurs = genetics_engine.dinosaurs
-        score = 0
-
-        speed = 100
 
         # This is the game loop for one generation
-        while len(alive_dinosaurs):
-            t = pygame.time.get_ticks()  # Get current time
-            deltatime = (t - lastframe) / 1000.0  # Find difference in time and then convert it to seconds
-            lastframe = t  # Set lastFrame as the current time for next frame.
-            # Do speed_range steps within one frametime, this can increase speed
-            for i in range(speed_multiplier):
-                score += 1
-                obstaclespawner.update(deltatime)
-
-                speed_multiplier = do_events(speed_multiplier)
-
-                if speed < 160 and score % 300 == 0:
-                    speed += 10
-                    obstaclespawner.increase_speed(speed)
-                    ground.increase_speed(speed)
-
-                draw(deltatime, game_display, score, speed_multiplier, genetics_engine,
-                     alive_dinosaurs + [ground] + obstaclespawner.obstacles)
-                for dinosaur in genetics_engine.dinosaurs:
-                    if not dinosaur.alive:
-                        continue
-                    dinosaur.score = score
-                    gamestate = obstaclespawner.get_next_obstacle_xy(dinosaur)
-                    if gamestate is not None:
-                        [dino.react(gamestate) for dino in alive_dinosaurs]
-                    if obstaclespawner.is_colliding(dinosaur):
-                        dinosaur.alive = False
-
-                alive_dinosaurs = [dino for dino in genetics_engine.dinosaurs if dino.alive]
-            game_clock.tick(FPS)  # Lock fps to 30
-
-            if score > 20000:
-                # Probably found an invincible dino that's going to play forever
-                print("Found best dino with dna: " + str(genetics_engine.best_dinosaur.dna))
-                break
+        game_loop(game_clock, lastframe, speed_multiplier, game_display,
+                                 alive_dinosaurs, obstaclespawner, ground, genetics_engine)
 
         # all dinosaurs are dead, begin next generation
         genetics_engine.evolve()
     print([dino.score for dino in genetics_engine.dinosaurs])
+
+
+def game_loop(game_clock, lastframe, speed_multiplier, game_display,
+              alive_dinosaurs, obstaclespawner, ground, genetics_engine):
+    score = 0
+    speed = 100
+    while len(alive_dinosaurs):
+        t = pygame.time.get_ticks()  # Get current time
+        deltatime = (t - lastframe) / 1000.0  # Find difference in time and then convert it to seconds
+        lastframe = t  # Set lastFrame as the current time for next frame.
+        # Do speed_range steps within one frametime, this can increase speed
+        for i in range(speed_multiplier):
+            score += 1
+            obstaclespawner.update(deltatime)
+
+            speed_multiplier = do_events(speed_multiplier)
+
+            if speed < 160 and score % 300 == 0:
+                speed += 10
+                obstaclespawner.increase_speed(speed)
+                ground.increase_speed(speed)
+
+            draw(deltatime, game_display, score, speed_multiplier, genetics_engine,
+                 alive_dinosaurs + [ground] + obstaclespawner.obstacles)
+            for dinosaur in genetics_engine.dinosaurs:
+                if not dinosaur.alive:
+                    continue
+                dinosaur.score = score
+                gamestate = obstaclespawner.get_next_obstacle_xy(dinosaur)
+                if gamestate is not None:
+                    [dino.react(gamestate) for dino in alive_dinosaurs]
+                if obstaclespawner.is_colliding(dinosaur):
+                    dinosaur.alive = False
+
+            alive_dinosaurs = [dino for dino in genetics_engine.dinosaurs if dino.alive]
+        game_clock.tick(FPS)  # Lock fps to 30
+
+        if score > 20000:
+            # Probably found an invincible dino that's going to play forever
+            print("Found best dino with dna: " + str(genetics_engine.best_dinosaur.dna))
+            break
+
+    return score, speed
 
 
 if __name__ == "__main__":

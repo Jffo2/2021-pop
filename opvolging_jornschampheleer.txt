@@ -85,6 +85,7 @@ Logboek
 14/10/2020: Schrijven van het rapport.
 18/10/2020: Beginnen met maken van het dino spel. Eerste commit en dino
 19/10/2020: Afwerken dino spel basis. Alles klaarmaken om GA te implementeren.
+28/11/2020: Maken van een Readme + refactoring van dinogame + opzoekwerk over neat.
 
 
 

@@ -1,13 +1,13 @@
 #  Copyright (c) 2020.
 #  By Jorn Schampheleer
 
-from DinoAI.DinoAI.aidinosaur import AIDinosaur
-from DinoAI.DinoAI.dna import DNA
+from DinoAI.DinoAI.GameObjects.aidinosaur import AIDinosaur
+from DinoAI.DinoAI.GAHelpers.dna import DNA
 import random
 
-POPULATION_SIZE = 200
+POPULATION_SIZE = 20
 N_GENERATIONS = 1000
-MUTATION_CHANCE = 0.05
+MUTATION_CHANCE = 0.1
 
 
 class GeneticsEngine(object):

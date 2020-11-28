@@ -1,10 +1,9 @@
 #  Copyright (c) 2020.
 #  By Jorn Schampheleer
 #  Textures copyrighted by google, extracted from the game by chirag64 (https://github.com/chirag64/t-rex-runner-bot)
-import pygame
-from DinoAI.DinoAI.dinosaur import Dinosaur
-from DinoAI.DinoAI.aidinobehavior import AIDinoBehavior
-from DinoAI.DinoAI.dna import DNA
+from DinoAI.DinoAI.GameObjects.dinosaur import Dinosaur
+from DinoAI.DinoAI.GAHelpers.aidinobehavior import AIDinoBehavior
+from DinoAI.DinoAI.GAHelpers.dna import DNA
 
 
 class AIDinosaur(Dinosaur):
