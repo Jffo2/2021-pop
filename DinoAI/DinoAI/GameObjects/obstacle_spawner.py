@@ -33,7 +33,7 @@ class ObstacleSpawner(object):
 
     def get_next_obstacle_xy(self, dinosaur):
         for obstacle in self.obstacles:
-            if obstacle.x > dinosaur.x:
+            if obstacle.x + obstacle.texture.get_size()[0] > dinosaur.x:
                 return obstacle.x, obstacle.relative_y
         return None
 

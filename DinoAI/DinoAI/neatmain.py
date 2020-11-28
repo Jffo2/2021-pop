@@ -6,7 +6,7 @@ import pygame
 from DinoAI.DinoAI.GameObjects.ground import Ground
 from DinoAI.DinoAI.GameObjects.obstacle_spawner import ObstacleSpawner
 from DinoAI.DinoAI.GameObjects.neatdinosaur import NeatDinosaur
-import DinoAI.DinoAI.NeatHelpers.visualize
+from DinoAI.DinoAI.NeatHelpers import visualize
 import neat
 
 pygame.init()
@@ -20,7 +20,8 @@ speed_multiplier = 1
 FPS = 30
 
 
-def do_events(speed_multiplier):
+def do_events():
+    global speed_multiplier
     for event in pygame.event.get():  # Check for events
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -28,7 +29,6 @@ def do_events(speed_multiplier):
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE:
                 speed_multiplier = speed_multiplier % 11 + 1
-    return speed_multiplier
 
 
 def draw(deltatime, score, drawables):
@@ -46,18 +46,6 @@ def draw_score(display, score):
     font = pygame.font.SysFont(None, 24)
     img = font.render(str(score), True, white)
     display.blit(img, (20, 20))
-
-
-def draw_evolution_info(display, generation, dinosaurs, best_dinosaur):
-    font = pygame.font.SysFont(None, 24)
-    img = font.render("Generation: " + str(generation), True, white)
-    display.blit(img, (20, 40))
-    img = font.render("Alive dinosaurs: " + str(len([dino for dino in dinosaurs if dino.alive])), True, white)
-    display.blit(img, (20, 60))
-    img = font.render("Best dinosaur: " + str(best_dinosaur.dna), True, white)
-    display.blit(img, (20, 80))
-    img = font.render("Best score: " + str(best_dinosaur.score), True, white)
-    display.blit(img, (20, 100))
 
 
 def draw_speed(display):
@@ -113,7 +101,7 @@ def game_loop(game_clock, lastframe, alive_dinosaurs, obstaclespawner, ground):
             score += 1
             obstaclespawner.update(deltatime)
 
-            speed_multiplier = do_events(speed_multiplier)
+            do_events()
 
             # Increase speed over time to make game harder
             if speed < 160 and score % 300 == 0:
