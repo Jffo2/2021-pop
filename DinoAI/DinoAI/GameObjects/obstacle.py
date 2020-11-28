@@ -36,7 +36,7 @@ Y_OFFSET = 12
 
 BIRD_HEIGHT_ARRAY = [
     0,
-    40,
+    30,
     80
 ]
 
