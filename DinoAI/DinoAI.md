@@ -58,3 +58,4 @@ Het is zeer fijn om een neuro-evolutionair netwerk te zien leren.
  - [ ] Het visualiseren van het geleerde netwerk van 1 van de dino's
  - [ ] Het opslaan van de winnaar
  - [ ] Het toelaten van een replay van de winnaar
+ - [ ] main.py, neatmain.py en gamain.py delen heel erg veel code, dit moet beter kunnen
