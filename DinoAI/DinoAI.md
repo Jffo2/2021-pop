@@ -45,3 +45,16 @@ Het probleem zijn de vogels die hoog in de lucht vliegen.
 Omdat deze vogels relatief sporadisch voorkomen kan de AI zich hier moeilijk aan aanpassen.
 Zo leert de AI eerst om overal over te springen en pas later kan hij leren om niet tegen de hoogste vogels te springen.
 Gelukkig zijn neat netwerken heel versatiel en zal de AI uiteindelijk toch tot een oplossing komen. Ook al duurt het in dit geval langer.
+Uiteindelijk na 311 generaties is neat erin geslaagd een netwerk te vinden dat de game kan spelen.
+De winnende dino is een dino die rechtop loopt enkel wanneer er geen obstakels zijn op het scherm.
+Van zodra een obstakel op het scherm komt bukt de dino zich.
+Wanneer er een obstakel komt dat laag bij de grond is springt de dino,
+en wanneer het obstakel hoger is dan blijft hij gebukt.
+Ondanks dat het even duurde vooraleer neat een optimale oplossing vond ben ik wel heel trots.
+Het is zeer fijn om een neuro-evolutionair netwerk te zien leren.
+
+### Uitbreidingen van het neat project
+
+ - [ ] Het visualiseren van het geleerde netwerk van 1 van de dino's
+ - [ ] Het opslaan van de winnaar
+ - [ ] Het toelaten van een replay van de winnaar
