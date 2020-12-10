@@ -53,7 +53,7 @@ en wanneer het obstakel hoger is dan blijft hij gebukt.
 Ondanks dat het even duurde vooraleer neat een optimale oplossing vond ben ik wel heel trots.
 Het is zeer fijn om een neuro-evolutionair netwerk te zien leren.
 
-### Uitbreidingen van het neat project
+### Uitbreidingen van het project
 
  - [ ] Het visualiseren van het geleerde netwerk van 1 van de dino's
  - [ ] Het opslaan van de winnaar
